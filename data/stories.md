@@ -49,8 +49,14 @@
   -action_multimedia
 
 ## userStories
+* greet
+  - utter_greet
+  - utter_presentacion
+* presentacion
+  - action_user_name
   - utter_informe
 * tarea_resuelta
   - formUserStories
   - form{"name": "formUserStories"}
+  - form{"name": null}
   - utter_slots_stories

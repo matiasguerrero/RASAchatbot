@@ -79,3 +79,9 @@
 - maximo de interacciones
 - maximo de interacciones es
 
+## intent:presentacion
+- Mi nombre es [Matias](nombre_user)
+- Mi nombre es [Bruno](nombre_user)
+- [Bruno](nombre_user)
+- [Matias](nombre_user)
+

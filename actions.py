@@ -199,6 +199,16 @@ class FormUserStorie(FormAction):
                 self.from_entity(entity="entendimiento"),
             ],
         }
+    def getIdUser(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]):
+        name=tracker.get_slot('user_name')
+        id=0
+        if name == 'Matias':    
+            id=1
+        if name == "Bruno":
+            id=2
+        return id
     def submit(self,dispatcher: CollectingDispatcher,tracker: Tracker,
             domain: Dict[Text, Any],
         ) -> List[Dict]:
@@ -208,7 +218,7 @@ class FormUserStorie(FormAction):
                 if str.isdigit(letra):
                     cantidad=cantidad+letra   
             msg = {
-                'user_id': 0,                      
+                'user_id': int(self.getIdUser(dispatcher,tracker,domain)),                      
                 'factor_id': 0,                     
                 'factor_name': 'TiempoTrabajoUS',
                 'value_new_ocurr': int(cantidad)
@@ -216,3 +226,18 @@ class FormUserStorie(FormAction):
             print(requests.put(url_red, json = msg).json())   
             dispatcher.utter_message("Thanks, great job!")
             return []
+
+class ActionUserName(Action):
+
+    def name(self) -> Text:
+        return "action_user_name"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        for e in tracker.latest_message['entities']:
+             if e['entity'] == 'nombre_user':
+                 username=e['value']
+        print(username)
+        return [SlotSet("user_name", username)]

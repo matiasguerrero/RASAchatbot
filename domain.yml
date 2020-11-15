@@ -19,16 +19,19 @@ intents:
   - deny
   - affirm
   - entenderUS
+  - presentacion
 
 entities:
   - respuesta
   - entendimiento
+  - nombre_user
 
 actions:
   - action_create_vector
   - action_felder
   - action_interacciones
   - action_multimedia
+  - action_user_name
 
 responses:
   utter_greet:
@@ -90,6 +93,10 @@ responses:
           A -> Imágenes, diagramas, gráficos o mapas.
           B -> Instrucciones escritas o información verbal."
 
+  utter_presentacion:
+  - text: "¿Cual es tu nombre?"
+  - text: "¿Cómo te llamas?"
+
   utter_ask_tiempo_empleado:
   - text: "Cúanto tiempo calculás haber tardado en hacerlo?"
   - text: "Cuánto tardaste en leer?"
@@ -104,6 +111,8 @@ slots:
   caracteristicas:
     type: list
     initial_value: [0,0,0,0]  
+  user_name:
+    type: unfeaturized
   tiempo_empleado:
     type: unfeaturized
   iscomprensionUS:
