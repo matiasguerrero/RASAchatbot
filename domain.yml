@@ -1,128 +1,39 @@
 intents:
   - greet
-  - opcion
-  - goodbye
-  - felder_path
-  - testFelder
-  - indicadores
-  - multimedia
-  - doing
-  - cant_interacciones
-  - max_interacciones
-  - lectura_story
-  - tarea_resuelta
-  - tiempo
-  - imagenes
-  - audio
-  - texto
-  - userStories
-  - deny
-  - affirm
-  - entenderUS
-  - presentacion
-
-entities:
-  - respuesta
-  - entendimiento
-  - nombre_user
+  - enviarJSON
+  - negacion
 
 actions:
-  - action_create_vector
-  - action_felder
-  - action_interacciones
-  - action_multimedia
-  - action_user_name
+  - action_sendData
 
 responses:
   utter_greet:
-  - text: "Hola! Como estás?"
-  - text: "Nos encontramos de nuevo!"
-  utter_bye:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_goodbye:
   - text: "Hasta luego"
+  - text: "Chau"
 
-  utter_aceptacion:
-  - text: "Ok, perfecto"
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
 
-  utter_informe:
-  - text: "Contame, que estás haciendo?"
+  utter_tiempoUS:
+  - text: "Me enviás los tiempos de finalización de las US?"
 
-  utter_slots_stories:
-  - text: "Bien, tu análisis fue:
-            - Tiempo estimado: {tiempo_empleado}\n
-            - Comprendió: {iscomprensionUS}\n
-            - Necesitó de: {comprensionUS}\n"
- 
-  utter_interacciones:
-  - text: "Cuantas interacciones realizaste en el trabajo?"
+  utter_recursos:
+  - text: "Me enviás las interacciones con recursos?"
 
-  utter_total_interacc:
-  - text: "Cual fue el máximo de interacciones de todos los empleados?"
- 
-  utter_preg1:
-  - text: "1. Entiendo algo mejor si:
-          A -> lo utilizo
-          B -> lo analizo"
+  utter_lecturaUS:
+  - text: "Por favor enviame los tiempos de lectura de las US"
 
-  utter_preg2:
-  - text: "2. Prefiero ser considerado:
-          A -> innovador
-          B -> realista"
+  utter_participmeet:
+  - text: "Enviame las participaciones en los meets de cada persona"
 
-  utter_preg3:
-  - text: "3. Cuando pienso en lo que hice ayer, es más probable que obtenga:
-          A -> una imagen
-          B -> palabras"
-
-  utter_preg4:
-  - text: "4. Tiendo a:
-          A -> comprender los detalles de un tema o material, pero podría confundirme con respecto a su estructura general.
-          B -> comprender la estructura general pero los detalles podrían ser difusos."
-
-  utter_preg5:
-  - text: "5. Cuando aprendo algo nuevo, me ayuda:
-          A -> a hablar al respecto
-          B -> a pensar al respecto"
   
-  utter_preg6:
-  - text: "6.  Si fuera un docente, preferiría enseñar una materia:
-          A -> que trate con hechos y situaciones de la vida real.
-          B -> que trate con ideas y teorías."
-
-  utter_preg7:
-  - text: "7. Prefiero obtener nueva información en forma de:
-          A -> Imágenes, diagramas, gráficos o mapas.
-          B -> Instrucciones escritas o información verbal."
-
-  utter_presentacion:
-  - text: "¿Cual es tu nombre?"
-  - text: "¿Cómo te llamas?"
-
-  utter_ask_tiempo_empleado:
-  - text: "Cúanto tiempo calculás haber tardado en hacerlo?"
-  - text: "Cuánto tardaste en leer?"
-
-  utter_ask_iscomprensionUS:
-  - text: "Pudiste comprenderla facilmente?"
-  
-  utter_ask_comprensionUS:
-  - text: "¿Qué necesitarías para entenderla mejor? Separarla en pequeños pasos o detalles puntuales?"
-
-slots:
-  caracteristicas:
-    type: list
-    initial_value: [0,0,0,0]  
-  user_name:
-    type: unfeaturized
-  tiempo_empleado:
-    type: unfeaturized
-  iscomprensionUS:
-    type: unfeaturized
-  comprensionUS:
-    type: unfeaturized  
-
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
-
-forms:
-  - formUserStories
